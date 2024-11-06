@@ -1,0 +1,84 @@
+<!-- templates/news.html -->
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <!-- Category News Start -->
+    <div class="tab-news">
+        <div class="container">
+            <div class="row">
+                <!-- Featured, Popular, Latest Tabs -->
+                <div class="col-md-6">
+                    <ul class="nav nav-pills nav-justified">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="pill" href="#featured">Featured News</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="pill" href="#popular">Popular News</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="pill" href="#latest">Latest News</a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content">
+                        {% for news in featured_news %}
+                            <div id="featured" class="container tab-pane active">
+                                <div class="tn-news">
+                                    <div class="tn-img">
+                                        <img src="{{ news.image.url }}" alt="{{ news.title }}" />
+                                    </div>
+                                    <div class="tn-title">
+                                        <a href="">{{ news.title }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        <!-- Repeat similar blocks for popular and latest news -->
+                    </div>
+                </div>
+
+                <!-- Most Viewed, Most Read, Most Recent Tabs -->
+                <div class="col-md-6">
+                    <ul class="nav nav-pills nav-justified">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="pill" href="#m-viewed">Most Viewed</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="pill" href="#m-read">Most Read</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="pill" href="#m-recent">Most Recent</a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content">
+                        {% for news in most_viewed_news %}
+                            <div id="m-viewed" class="container tab-pane active">
+                                <div class="tn-news">
+                                    <div class="tn-img">
+                                        <img src="{{ news.image.url }}" alt="{{ news.title }}" />
+                                    </div>
+                                    <div class="tn-title">
+                                        <a href="">{{ news.title }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        <!-- Repeat similar blocks for most read and most recent news -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Tab News End -->
+</body>
+</html>
