@@ -1,5 +1,6 @@
 # models.py
 from django.db import models
+from ckeditor.fields import RichTextField
 
 class News(models.Model):
     CATEGORY_CHOICES = [
@@ -19,7 +20,7 @@ class News(models.Model):
     ]
 
     title = models.CharField(max_length=255)
-    content = models.TextField()
+    content = RichTextField(blank=True)
     image = models.ImageField(upload_to='news_images/')
     category = models.CharField(max_length=50, choices=CATEGORY_CHOICES)
     filter = models.CharField(max_length=50, choices=Filter_choices, blank=True, null=True)

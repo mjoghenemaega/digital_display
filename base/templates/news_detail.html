@@ -93,7 +93,7 @@
                             <div class="sn-content">
                                 <h1 class="sn-title">{{ news_item.title }}</h1>
                                  <p class="news-date">{{ news_item.created_at }}</p>
-                                 <p>{{ news_item.content }}</p>
+                                 <p>{{ news_item.content|safe }}</p>
 
                             </div>
                         </div>

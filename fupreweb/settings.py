@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'base',
+    'ckeditor',
+    'ckeditor_uploader',
 ]
 
 MIDDLEWARE = [
@@ -119,7 +121,21 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+CKEDITOR_UPLOAD_PATH = 'uploads/'
 
+
+
+
+
+
+# CKeditor Config
+CKEDITOR_CONFIGS = {
+    'default': {
+        'width': '100%',
+        'tabSpaces': 4,
+
+    }
+}
 # settings.py
 STATIC_URL = '/static/'
 
