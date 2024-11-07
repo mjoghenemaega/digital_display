@@ -24,7 +24,12 @@ from base import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('news/', views.news_view, name='news'),
+    path('', views.news_view, name='news'),
+    path('news/<int:news_id>/', views.news_detail, name='news_detail'),
 
 ]
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
