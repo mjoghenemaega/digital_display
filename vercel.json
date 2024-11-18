@@ -1,13 +1,29 @@
 {
-    "builds": [{
-        "src": "fupreweb/wsgi.py",
-        "use": "@vercel/python",
-        "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
-    }],
-    "routes": [
+  "builds": [
+    {
+      "src": "fupreweb/wsgi.py",
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "15mb",
+        "runtime": "python3.9"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "fupreweb/wsgi.py"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
         {
-            "src": "/(.*)",
-            "dest": "fupreweb/wsgi.py"
+          "key": "Content-Security-Policy",
+          "value": "frame-ancestors 'self' https://digital-display.vercel.app/"
         }
-    ]
+      ]
+    }
+  ]
 }
