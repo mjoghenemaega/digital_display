@@ -5,7 +5,7 @@ from django.http import Http404
 
 def news_view(request):
     context = {
-        'featured_news': News.objects.filter(category='featured')[:3],
+        'featured_news': News.objects.filter(category='featured')[:7],
         'popular_news': News.objects.filter(category='popular')[:4],
         'latest_news': News.objects.filter(category='latest')[:3],
         'most_viewed_news': News.objects.filter(filter='most_viewed')[:3],
