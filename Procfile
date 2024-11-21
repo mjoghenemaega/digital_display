@@ -1,1 +1,1 @@
-web: gunicorn fupreweb.wsgi
+web: gunicorn fupreweb.wsgi --log-file -
