@@ -25,3 +25,9 @@ def news_detail(request, news_id):
     except News.DoesNotExist:
         raise Http404("News item not found")
     return render(request, 'news_detail.html', {'news_item': news_item, 'popular_news': News.objects.filter(category='popular')[:4],})
+
+
+
+def home(request):
+
+    return render(request, 'index.html')
