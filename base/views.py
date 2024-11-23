@@ -1,8 +1,11 @@
 # views.py
+from django.views.decorators.clickjacking import xframe_options_exempt
+
 from django.shortcuts import render
 from .models import News
-from django.http import Http404
+from django.http import Http404, HttpResponse
 
+@xframe_options_exempt
 def news_view(request):
     context = {
         'featured_news': News.objects.filter(category='featured')[:7],
@@ -18,7 +21,7 @@ def news_view(request):
     }
     return render(request, 'news.html', context)
 
-
+@xframe_options_exempt
 def news_detail(request, news_id):
     try:
         news_item = News.objects.get(id=news_id)
@@ -27,7 +30,7 @@ def news_detail(request, news_id):
     return render(request, 'news_detail.html', {'news_item': news_item, 'popular_news': News.objects.filter(category='popular')[:4],})
 
 
-
+@xframe_options_exempt
 def home(request):
 
     return render(request, 'index.html')
