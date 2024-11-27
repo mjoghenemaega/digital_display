@@ -3,88 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta Cross-Origin-Embedder-Policy: unsafe-none | require-corp | credentialless >
-
-    <title>Digital Interactive Display Station</title>
+    <title>Attendance Tracker</title>
     <style>
         body {
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            display: grid;
-            grid-template-rows: 10% 90%; /* Header takes 10%, content takes 90% */
-            grid-template-columns: 1fr; /* Single-column layout */
-            height: 100vh;
-            background-color: black;
-            color: white;
-            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
         }
 
-        /* Header styling */
-        #header {
-            background-color: #333;
-            padding: 10px;
-            font-size: 1.5em;
-            font-weight: bold;
+        header {
+            background: #007BFF;
+            color: #fff;
+            padding: 20px;
             text-align: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
-        /* Main content (Left and Right partitions) */
-        #content {
-            display: grid;
-            grid-template-columns: 50% 50%; /* Left and Right Partition */
-            height: 100%;
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
         }
 
-        /* Left partition */
-        .left {
-            display: grid;
-            grid-template-rows: 20% 80%; /* Split left partition into 20% and 80% */
-            border-right: 1px solid #555; /* Add border between left and right partitions */
+        header p {
+            margin: 5px 0 0;
         }
 
-        .left iframe {
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        iframe {
             width: 100%;
-            height: 100%;
+            height: 600px;
             border: none;
+            margin-top: 20px;
         }
 
-        /* Right partition */
-        .right {
-            display: grid;
-            grid-template-rows: 50% 50%; /* Split right partition into two equal halves */
-        }
-
-        .right iframe {
+        footer {
+            background: #333;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
             width: 100%;
-            height: 100%;
-            border: none;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
-    <!-- Header Section -->
-    <div id="header">INTERACTIVE DISPLAY BOARD</div>
-
-    <!-- Main Content -->
-    <div id="content">
-        <!-- Left Partition -->
-        <div class="left">
-            <!-- 20% Height -->
-            <iframe src="https://fupre.edu.ng/" title="Time Website 1"></iframe>
-            <!-- 80% Height -->
-            <iframe src="https://mjoghenemaega.github.io/smart-home-app/" title="Time Website 3"></iframe>
-        </div>
-
-        <!-- Right Partition -->
-        <div class="right">
-            <!-- Top Half -->
-            <iframe src="https://didsnieee.com.ng/" title="Time Website 2"></iframe>
-            <!-- Bottom Half -->
-            <iframe src="https://mjoghenemaega.github.io/smart-home-app/" title="Time Website 4"></iframe>
-        </div>
-    </div>
+    <header>
+        <h1>Attendance Tracker</h1>
+        <p>This enables you to view live attendance records directly from our Google Sheet</p>
+    </header>
+    <main>
+        <h2>Attendance Records for EEE512 </h2>
+        <p>The table below displays the most recent attendance logs. It updates automatically when new records are added.</p>
+        <!-- Embed the Google Sheet using an iframe -->
+   <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTUc2PGLuys7nd9cA2HoSCyIxrrMsFY9RmRLnGeSGNa_ynJX-Kx7Fj0w6VBawvk9mjC1FQBwdNfBZh7/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+    </main>
+    <footer>
+        <p>&copy; 2024 Attendance Tracker. All rights reserved.</p>
+    </footer>
 </body>
 </html>
